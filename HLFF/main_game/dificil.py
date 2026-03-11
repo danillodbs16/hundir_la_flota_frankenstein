@@ -1,15 +1,22 @@
+#Librería para crear las gráficas:
 import tkinter as tk
 from tkinter import simpledialog
-from random import randint
-#from main_game import *
-from Functions import *
-from time import sleep
-from Sounds import *
-
 from tkinter import messagebox
+
+#tiempo y variables aleatórias:
+import time
+from time import sleep
+from random import randint
+
+
+#Funciones para crear y operar en los tableros:
+from Functions import *
+
+#Efectos sonoros
+from Sounds import *
 import pyfxr
 import pygame
-import time
+
 font=16
 
 class JuegoGUI_dificil:
