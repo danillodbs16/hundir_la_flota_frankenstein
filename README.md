@@ -24,7 +24,7 @@ enemigo haga lo mismo.
 ## Requisitos
 
 
-El juego requiere **Python 3.1.1 o superior** y las siguientes librerías:
+El juego requiere **Python 3.11 o superior** y las siguientes librerías:
 
     numpy>=1.24
     pyfxr==0.3.0
