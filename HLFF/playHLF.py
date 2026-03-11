@@ -47,9 +47,9 @@ else:
 
 # playHLF.py
 def main():
-    # your existing code to start the game
+    # 
     print("Que empiece el juego!")
-    # e.g., launch GUI, run the game loop, etc.
+
 
 if __name__ == "__main__":
     main()

@@ -24,20 +24,25 @@ class JuegoGUI_facil:
 
     def __init__(self, master):
 
+        #Crear una ventana emergente para inserir el nombre del jugador
         self.master = master
         self.master.title("Batalla Naval - Dificultad: Facil")
         self.user = simpledialog.askstring("Nombre del jugador", "Introduce tu nombre:")
 
+        #Si no hay nombre de jugador, se pone "Jugador" por defecto
         if not self.user:
             self.user = "Jugador"
 
+        #Crear tableros del Jugador y del Ordenador;:
         self.Jugador = Tablero()
         self.Jugador.crear_flota_aleatoria()
         self.Computador = Tablero()
         self.Computador.crear_flota_aleatoria()
+        #Guardar las informaciones del juego:
         self.n = self.Computador.n
         self.tab_Computador = self.Computador.tab
         self.tab_Jugador = self.Jugador.tab
+        #El jugador empieza el juego:
         self.turno_jugador = True
 
         # NUEVO: lista de objetivos cercanos a impactos (Para el Computador)
@@ -45,8 +50,10 @@ class JuegoGUI_facil:
 
         #
 
+        #Crear caja del juego
         self.frame_msg = tk.Frame(master)
         self.frame_msg.grid(row=0, column=0, columnspan=2, pady=30)
+        #Mensaje interactivo:
         self.msg = tk.Label(self.frame_msg, text=f"Hola{self.user} ¡Bienvenido al juego!",font=("Arial",font))
         self.msg.pack()
         self.vidas_lbl = tk.Label(self.frame_msg,
@@ -60,6 +67,7 @@ class JuegoGUI_facil:
         tk.Label(self.frame_comp,
         text="Tablero del Oponente",font=("Arial",font)).grid(row=0, column=0, columnspan=self.n)
 
+        #Creando botones para los tableros (azul claro para el agua, griz para los barcos del Jugador)
         self.botones_comp = []
 
         for i in range(self.n):
@@ -139,6 +147,7 @@ class JuegoGUI_facil:
 
             self.botones_comp[i][j].config(bg="red", text="X", state="disabled")
             self.msg.config(text=f"¡{self.user} ha acertado! Vuelve a tirar")
+            
             shot_sound()
 
         else:
