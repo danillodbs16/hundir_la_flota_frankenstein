@@ -1,5 +1,6 @@
 import numpy as np
 
+#Orientación de los barcos, horizontal (h) o vertical (v).
 dirs = ["h", "v"]
 
 class Tablero:
@@ -15,16 +16,23 @@ class Tablero:
         self.historial=[]
 
     def add_barco(self, length, pos, dirr):
+        # Funcion para añadir barco en el tablero, y que tenga tamaño "lengh", posicion pos=(i,j) 
+        #y orientación dirr ("h" o "v")
         i, j = pos
 
+        #Caso si añada en la horizontal
         if dirr == "h":
+           #verificando si el barco se sale del tablero
             if j + length > self.n:
                 return False
+          
+            #verificando si no hay choque entre barcos
             if np.sum(self.tab[i, j:j+length]) != 0:
                 return False
 
             self.tab[i, j:j+length] = 1
 
+            #creando identificador del barco y número de barcos
             barco_id = self.barco_counter
             self.barco_counter += 1
             coords = [(i, j+k) for k in range(length)]
@@ -36,7 +44,9 @@ class Tablero:
 
             return True
 
+        #Caso si añada en la vertical:
         elif dirr == "v":
+            #verificando si el barco se sale del tablero
             if i + length > self.n:
                 return False
             if np.sum(self.tab[i:i+length, j]) != 0:
@@ -44,6 +54,7 @@ class Tablero:
 
             self.tab[i:i+length, j] = 1
 
+            #creando identificador del barco y número de barcos
             barco_id = self.barco_counter
             self.barco_counter += 1
             coords = [(i+k, j) for k in range(length)]
@@ -82,13 +93,17 @@ class Tablero:
          #   self.total_vidas=sum([self.status[i]["vidas"] for i in self.status.keys()])
 
     def crear_flota_aleatoria(self):
+        """Se crea aleatoriamenta la flota sin que los barcos se choquen"""
+        #Flota de 5 barcos con tamaño 5,4,3,3 y 2.
         L = [5, 4, 3, 3, 2]
 
+        #Se intenta (hasta 100 veces) colocar los barcos en en tablero 
         for l in L:
             colocado = False
             intentos = 0
 
             while not colocado and intentos < 100:
+                #variable aleatória para la orienacíon del barco
                 dirr = dirs[np.random.randint(0, 2)]
 
                 if dirr == "h":
@@ -102,6 +117,7 @@ class Tablero:
                             if self.tab[x][y] != 0:
                                 libre = False
 
+                #
                 else:
                     i = np.random.randint(0, self.n - l + 1)
                     j = np.random.randint(0, self.n)
@@ -113,17 +129,20 @@ class Tablero:
                             if self.tab[x][y] != 0:
                                 libre = False
 
+                #Si despúes de verificar los aredores no hay choques, se añade el barco
                 if libre:
                     colocado = self.add_barco(l, (i, j), dirr)
 
                 intentos += 1
 
+            #En el ultimo caso, se retorna el error (no suele pasar)
             if not colocado:
                 print(f"No se pudo colocar el barco de tamaño {l}")
 
         self.total_vidas = sum([self.status[i]["vidas"] for i in self.status.keys()])
 
     def tiro(self, i, j):
+        """Funcion para mapear los tiros en el tablero"""
         if self.map[i, j] != 0:
             print("¡Ya disparaste aquí!")
             return
