@@ -94,8 +94,8 @@ class Tablero:
 
     def crear_flota_aleatoria(self):
         """Se crea aleatoriamenta la flota sin que los barcos se choquen"""
-        #Flota de 5 barcos con tamaño 5,4,3,3 y 2.
-        L = [5, 4, 3, 3, 2]
+        #Tamaño de flota:
+        L = [ 4,3,3,2,2,2,1,1,1,1]
 
         #Se intenta (hasta 100 veces) colocar los barcos en en tablero 
         for l in L:
