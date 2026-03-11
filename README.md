@@ -53,7 +53,7 @@ python playHLF.py
     .
     ├── playHLF.py
     ├── main_game/
-    │   ├── easy.py
+    │   ├── facil.py
     │   ├── normal.py
     │   └── dificil.py
     ├── Functions.py
