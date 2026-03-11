@@ -1,4 +1,11 @@
 # Hundir la Flota Frankenstein
+------------------------------------------------------------------------
+
+**Autor:** Danillo Barros de Souza\
+**ORCID:** https://orcid.org/0000-0002-7762-8862
+
+------------------------------------------------------------------------
+
 
 ![Hundir la Flota Frankenstein](HLF_Frankeinstein.png)
 
@@ -14,12 +21,6 @@ del oponente adivinando sus posiciones en una cuadrícula antes de que el
 enemigo haga lo mismo.
 
 ------------------------------------------------------------------------
-
-**Autor:** Danillo Barros de Souza\
-**ORCID:** https://orcid.org/0000-0002-7762-8862
-
-------------------------------------------------------------------------
-
 ## Requisitos
 
 El juego requiere **Python 3** y las siguientes librerías:
