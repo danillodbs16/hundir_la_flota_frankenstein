@@ -2,8 +2,8 @@
 ------------------------------------------------------------------------
 
 **Autor:** Danillo Barros de Souza\
-**ORCID:** https://orcid.org/0000-0002-7762-8862
-**Website:** https://danillodbs16.github.io/danillosouza/
+**ORCID:** https://orcid.org/0000-0002-7762-8862\
+**Website:** https://danillodbs16.github.io/danillosouza/\
 ------------------------------------------------------------------------
 
 
